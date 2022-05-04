@@ -19,7 +19,7 @@ public class Hotel {
 @Field("_id")
 //	  @JsonIgnore
 //	  @Field("my_object_id")
-	private String hotelId;
+	private long hotelId;
 	
 	private String hotelName;
 	
@@ -51,7 +51,7 @@ public class Hotel {
 	 * @param email
 	 * @param description
 	 */
-	public Hotel(String hotelId, String hotelName, int rating, String city, int pincode, String contact, String email,
+	public Hotel(long hotelId, String hotelName, int rating, String city, int pincode, String contact, String email,
 			String description) {
 		super();
 		this.hotelId = hotelId;
@@ -67,14 +67,14 @@ public class Hotel {
 	/**
 	 * @return the hotelId
 	 */
-	public String getHotelId() {
+	public long getHotelId() {
 		return hotelId;
 	}
 
 	/**
 	 * @param hotelId the hotelId to set
 	 */
-	public void setHotelId(String hotelId) {
+	public void setHotelId(long hotelId) {
 		this.hotelId = hotelId;
 	}
 

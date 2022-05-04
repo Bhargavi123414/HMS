@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hms.demo.dao.HotelRepository;
 import com.hms.demo.model.Hotel;
 import com.hms.demo.model.Room;
+import com.hms.demo.service.SequenceGeneratorService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,6 +27,8 @@ public class HotelController {
 	@Autowired
 	private HotelRepository service;
 	
+	@Autowired
+	private SequenceGeneratorService sequenceGeneratorService;
 	
 	@GetMapping("/hotel")
 	public List<Hotel> findAll() {
@@ -35,7 +38,7 @@ public class HotelController {
 
 	@PostMapping("/hotel")
 	public void createHotel(@RequestBody Hotel hotel) {
-		
+		hotel.setHotelId(sequenceGeneratorService.generateSequence(Hotel.SEQUENCE_NAME));
 		service.save(hotel);
 	}
 
@@ -56,7 +59,7 @@ public class HotelController {
 	
 	
 	@GetMapping("/hotel/by/{hotelId}")
-	public Hotel findById(@PathVariable String hotelId) {
+	public Hotel findById(@PathVariable long hotelId) {
 		
 		return service.findAll().stream().filter(id -> id.getHotelId()==hotelId).findAny().get();
 	}

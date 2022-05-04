@@ -96,10 +96,11 @@ public class BookingController {
 	@ApiOperation(value = "update booking")
 	//update
 	@PutMapping("/booking")
-	public void updateBooking(@RequestBody Booking book) {
+	public String updateBooking(@RequestBody Booking book) {
 		System.out.println("HIIIII");
 		System.out.println(book.toString());
 		repository.save(book);
+		return "booking updated";
 	}
 	
 	
