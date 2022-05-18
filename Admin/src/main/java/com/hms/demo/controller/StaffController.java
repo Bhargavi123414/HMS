@@ -30,10 +30,13 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+//@RestController
+//@RequestMapping("/api/v2")
+//@Api(value="Hotel Management System", description="Operations pertaining to employee in Hotel Management System")
 @RestController
-@RequestMapping("/api/v1")
-@Api(value="Hotel Management System", description="Operations pertaining to employee in Hotel Management System")
+@CrossOrigin("*")
+@RequestMapping("/api/v1") 
 public class StaffController {
 	@Autowired
 	private StaffRepository staffRepository;
